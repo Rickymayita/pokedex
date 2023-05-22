@@ -7,25 +7,35 @@ import styles from './pokemons.module.css'
 import BulbasaurPic from "../assets/bulbasaur.gif"
 import { fetchPokemons } from "../api/fetchPokemons";
 import { Pokemon } from "../types/types";
+import LoadingScreem from "../component/LoadingScreem";
+import { waitFor } from "../utils/utils";
 
 const Pokemons = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const [query, setQuery] = useState("")
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
     useEffect(() => {
         const fetchAllPokemons = async () => {
+            setIsLoading(true)
+            await waitFor(1000)
             const allPokemons = await fetchPokemons();
             setPokemons(allPokemons);
+            setIsLoading(false)
         }
         fetchAllPokemons()
     }, [])
+
+    if(isLoading || !pokemons) {
+        return < LoadingScreem />
+    }
 
     return (
         <>
             <Header query={query} setQuery={setQuery} />
             <main>
                 <nav className={styles.nav}>
-                    {pokemons?.slice(0, 150).map((pokemon) => (
+                    {pokemons?.slice(0, 649).map((pokemon) => (
                         <Link
                             key={pokemon.id}
                             className={styles.listeItem}

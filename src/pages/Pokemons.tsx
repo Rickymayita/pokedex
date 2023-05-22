@@ -4,11 +4,11 @@ import Footer from "../component/Footer";
 import { Link } from "react-router-dom";
 import styles from './pokemons.module.css'
 
-import BulbasaurPic from "../assets/bulbasaur.gif"
 import { fetchPokemons } from "../api/fetchPokemons";
 import { Pokemon } from "../types/types";
 import LoadingScreem from "../component/LoadingScreem";
 import { waitFor } from "../utils/utils";
+import { match } from "assert";
 
 const Pokemons = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -30,12 +30,16 @@ const Pokemons = () => {
         return < LoadingScreem />
     }
 
+    const filteredPokemons = pokemons?.slice(0, 649).filter((pokemon) => {
+        return pokemon.name.toLowerCase().match(query.toLocaleLowerCase())
+    })
+
     return (
         <>
             <Header query={query} setQuery={setQuery} />
             <main>
                 <nav className={styles.nav}>
-                    {pokemons?.slice(0, 649).map((pokemon) => (
+                    {filteredPokemons?.slice(0, 649).map((pokemon) => (
                         <Link
                             key={pokemon.id}
                             className={styles.listeItem}

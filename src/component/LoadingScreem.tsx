@@ -1,10 +1,15 @@
-import Pokedex from '../assets/pokedex.png'
 import styles from './loadingScreem.module.css'
 
 const LoadingScreem = () => {
     return (
         <div className={styles.loadingScreem}>
-            <img className={styles.loadingScreemIcon} src={Pokedex} alt="Pokedex" />
+            <div className={styles.spinnerContainer}>
+                <div className={styles.container}>
+                    <div className={styles.mainball}>
+                        <div className={styles.pokebutton}></div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

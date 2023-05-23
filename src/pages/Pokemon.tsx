@@ -17,7 +17,7 @@ const Pokemon = () => {
     useEffect(() => {
         async function getPokemon() {
             setIsLoading(true)
-            await waitFor(300)
+            await waitFor(1000)
             const fetchedPokemon = await fetchPokemon(name as string)
             setPokemon(fetchedPokemon)
             setIsLoading(false)

@@ -25,7 +25,7 @@ const Pokemon = () => {
         getPokemon()
     }, [name])
 
-    if(isLoading || !pokemon) return <LoadingScreem />
+    if (isLoading || !pokemon) return <LoadingScreem />
 
     return (
         <>
@@ -37,18 +37,24 @@ const Pokemon = () => {
                 <main className={styles.pokemonInfo}>
                     <div className={styles.pokemonTitle}>
                         {pokemon?.name.toUpperCase()}
-                    </div>
-                    <div>Nr. {pokemon?.id}</div>
-                    <div>
-                        <img
-                            className={styles.pokemonInfoImg}
-                            src={pokemon?.imgSrc}
-                            alt={pokemon?.name}
+                        <div><h1>#{pokemon?.id}</h1></div>
+                        <div>
+                            <img
+                                className={styles.pokemonInfoImg}
+                                src={pokemon?.imgSrc}
+                                alt={pokemon?.name}
                             />
+                        </div>
                     </div>
-                    <div>HP: {pokemon?.hp}</div>
-                    <div>Attack: {pokemon?.attack}</div>
-                    <div>Defense: {pokemon?.defense}</div>
+                    <div className={styles.skills}>
+                        <div>HP: {pokemon?.hp}</div>
+                        <div>Attack: {pokemon?.attack}</div>
+                        <div>Specil Attack: {pokemon?.specialAtack}</div>
+                        <div>Defense: {pokemon?.defense}</div>
+                        <div> Special Defense: {pokemon?.specialDefense}</div>
+                        <div>Defense: {pokemon?.defense}</div>
+                        <div>Weight: {pokemon?.weight}</div>
+                    </div>
                 </main>
             </div>
             <Footer />

@@ -1,5 +1,10 @@
 .pokemon{
-    height: 85vh;
+    height: 65vh;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20%;
 }
 
 .pokeballbutton{
@@ -15,14 +20,14 @@
 .pokeballImg{
     width: 25px;
     height: 25px;
-    margin-right: 5px;
 }
 
 .pokemonInfo{
+    background: var(--bg-gradient);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin: 15px 0;
+    border-radius: 20px;
 }
 
 .pokemonInfoImg{
@@ -31,7 +36,57 @@
 }
 
 .pokemonTitle{
+    margin-right: 5px;
     margin: 5px 0;
     font-size: 2rem;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.skills{
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 30px;
+    padding: 15px;      
+}
+
+@media (max-width: 720px){
+    .pokemon{
+        height: 40vh;
+        margin-top: 15vh;
+    }    
+    .pokemonInfoImg{
+        width: 100px;
+    }
+    .pokemonTitle{
+        font-size: 1.5rem;
+    }
+    .skills{
+        margin-left: 10px;
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+@media (max-width: 400px){
+    .pokemonInfo{
+        display: block;
+    }
+    .pokemonTitle{
+        align-items: center;
+        padding: 0 60px;
+    }
+    .pokemon{
+        height: 50vh;
+        width: 90%;
+        margin-top: 14vh;
+        margin-left: 5%;
+    }   
+}
+@media (max-width: 375px){
+    .pokemon{
+        height: 60vh;
+        margin-top: 8vh;
+    }  
 }

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Header from "../component/Header";
-import Footer from "../component/Footer";
 import { Link } from "react-router-dom";
 import styles from './pokemons.module.css'
 
@@ -8,7 +7,6 @@ import { fetchPokemons } from "../api/fetchPokemons";
 import { Pokemon } from "../types/types";
 import LoadingScreem from "../component/LoadingScreem";
 import { waitFor } from "../utils/utils";
-import { match } from "assert";
 
 const Pokemons = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -57,7 +55,6 @@ const Pokemons = () => {
                     ))}
                 </nav>
             </main>
-            <Footer />
         </>
     );
 };

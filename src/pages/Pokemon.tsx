@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Pokeballimg from '../assets/pokeball.png'
-import Footer from '../component/Footer'
 import styles from './pokemon.module.css'
 import { PokemonDetail } from '../types/types'
 import { fetchPokemon } from '../api/fetchPokemon'
 import LoadingScreem from '../component/LoadingScreem'
 import { waitFor } from '../utils/utils'
+import Header from '../component/Header'
 
 const Pokemon = () => {
+    const [query, setQuery] = useState("")
     const [isLoading, setIsLoading] = useState(false);
     const [pokemon, setPokemon] = useState<PokemonDetail>()
     const { name } = useParams();
@@ -29,10 +30,7 @@ const Pokemon = () => {
 
     return (
         <>
-            <button className={styles.pokeballbutton} onClick={() => navegate(-1)}>
-                <img className={styles.pokeballImg} src={Pokeballimg} alt="pokeball" />
-                Go back
-            </button>
+            <Header query={query} setQuery={setQuery} />
             <div className={styles.pokemon}>
                 <main className={styles.pokemonInfo}>
                     <div className={styles.pokemonTitle}>
@@ -57,7 +55,10 @@ const Pokemon = () => {
                     </div>
                 </main>
             </div>
-            <Footer />
+            <button className={styles.pokeballbutton} onClick={() => navegate(-1)}>
+                <img className={styles.pokeballImg} src={Pokeballimg} alt="pokeball" />
+                Go Home
+            </button>
         </>
     )
 };

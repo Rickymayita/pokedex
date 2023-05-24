@@ -1,13 +1,19 @@
 .nav{
     margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .listeItem{
     display: flex;
-    border-bottom: 3px solid #e4e4e4;
+    border: 3px solid #e4e4e4;
     padding: 10px;
     text-decoration: none;
     align-items: center;
+    width: 200px;
+    margin: 1px;
 }
 
 .listeItem >:first-child{
@@ -19,8 +25,8 @@
 }
 
 .listeItemIcon{
-    width: 2rem;
-    height: 2rem;
+    width: 5rem;
+    height: 5rem;
     object-fit: contain;
 }
 
@@ -46,4 +52,13 @@
     font-weight: bolder;
     font-size: 0.8rem;
     display: block;
+}
+
+@media (max-width: 642px){
+    .nav{
+        flex-direction: column;
+    }
+    .listeItem{
+        width: 100%;
+    }
 }
